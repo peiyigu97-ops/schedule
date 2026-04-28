@@ -36,7 +36,7 @@
     #tt {
       display: grid;
       /* col 0 = time label, cols 1-7 = Mon-Sun */
-      grid-template-columns: 42px repeat(7, minmax(72px, 1fr));
+      grid-template-columns: 52px repeat(7, minmax(72px, 1fr));
       /* row 0 = day header, rows 1-13 = periods */
       grid-template-rows: 48px repeat(13, 52px);
       min-width: 560px;
@@ -139,19 +139,19 @@
   const DAYS = ['周一','周二','周三','周四','周五','周六','周日'];
 
   const PERIODS = [
-    { n:'01', t:'08:00', s:'上午' },
-    { n:'02', t:'08:50', s:'' },
-    { n:'03', t:'09:40', s:'' },
-    { n:'04', t:'10:40', s:'' },
-    { n:'05', t:'11:30', s:'' },
-    { n:'06', t:'14:00', s:'下午' },
-    { n:'07', t:'14:50', s:'' },
-    { n:'08', t:'15:50', s:'' },
-    { n:'09', t:'16:40', s:'' },
-    { n:'10', t:'17:30', s:'' },
-    { n:'11', t:'19:00', s:'晚上' },
-    { n:'12', t:'19:50', s:'' },
-    { n:'13', t:'20:40', s:'' },
+    { n:'01', t:'08:00', e:'08:45', s:'上午' },
+    { n:'02', t:'08:50', e:'09:35', s:'' },
+    { n:'03', t:'09:40', e:'10:25', s:'' },
+    { n:'04', t:'10:40', e:'11:25', s:'' },
+    { n:'05', t:'11:30', e:'12:15', s:'' },
+    { n:'06', t:'14:00', e:'14:45', s:'下午' },
+    { n:'07', t:'14:50', e:'15:35', s:'' },
+    { n:'08', t:'15:50', e:'16:35', s:'' },
+    { n:'09', t:'16:40', e:'17:25', s:'' },
+    { n:'10', t:'17:30', e:'18:15', s:'' },
+    { n:'11', t:'19:00', e:'19:45', s:'晚上' },
+    { n:'12', t:'19:50', e:'20:35', s:'' },
+    { n:'13', t:'20:40', e:'21:25', s:'' },
   ];
   // period num → 0-based index
   const P_IDX = {};
@@ -251,6 +251,8 @@
               ${secLabel}
               <span style="font-size:10px;font-weight:500;color:#bbb;">${pi+1}</span>
               <span style="font-size:8px;color:#d0d0d0;">${p.t}</span>
+              <span style="font-size:8px;color:#e0e0e0;">–</span>
+              <span style="font-size:8px;color:#d0d0d0;">${p.e}</span>
             </div>`;
 
       // background cells (cols 2-8)
