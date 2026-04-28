@@ -58,6 +58,8 @@ page { background: #f8f8f8; }
   grid-template-columns: 104rpx repeat(7, 160rpx);
   grid-template-rows: 96rpx repeat(13, 112rpx);
   width: 1224rpx; /* 104 + 7×160 */
+  gap: 1rpx;
+  background: #e8e8e8;
 }
 
 .corner {
@@ -94,14 +96,6 @@ page { background: #f8f8f8; }
 .p-num  { font-size: 20rpx; font-weight: 500; color: #bbb; }
 .p-time { font-size: 16rpx; color: #d0d0d0; }
 .p-sep  { font-size: 16rpx; color: #e0e0e0; }
-
-/* background cells */
-.bg-cell {
-  border-right: 1rpx solid #f0f0f0;
-  border-bottom: 1rpx solid #f0f0f0;
-}
-.today-col { background: #f0f5ff; }
-.sec-break { border-top: 4rpx solid #e0e0e0; }
 
 /* course blocks */
 .course-blk {

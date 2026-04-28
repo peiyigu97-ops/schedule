@@ -1,7 +1,7 @@
 <view class="page">
 
   <!-- 顶部 header -->
-  <view class="header" bindrendered="onHeaderLayout">
+  <view class="header" id="hd">
     <view class="header-top">
       <view>
         <text class="week-title">第{{week}}周</text>
@@ -57,13 +57,6 @@
         <text class="p-sep">–</text>
         <text class="p-time">{{item.e}}</text>
       </view>
-
-      <!-- 背景格子 -->
-      <view
-        wx:for="{{bgCells}}" wx:key="index"
-        class="bg-cell {{item.isToday ? 'today-col' : ''}} {{item.isBreak ? 'sec-break' : ''}}"
-        style="{{item.style}}"
-      ></view>
 
       <!-- 课程块 -->
       <view

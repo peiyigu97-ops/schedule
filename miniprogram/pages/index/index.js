@@ -21,7 +21,6 @@ const PERIODS = [
 ];
 const P_IDX = {};
 PERIODS.forEach((p, i) => P_IDX[p.n] = i);
-const BREAK_IDX = new Set([0, 5, 10]);
 
 const PALETTE = [
   {bg:'#EEF2FF',border:'#818CF8',color:'#3730A3'},
@@ -69,20 +68,23 @@ Page({
     todayBadge: '',
     dayHeaders: [],
     timeCells: [],
-    bgCells: [],
     courseBlocks: [],
     allWeekCourses: [],
-    scrollHeight: 500,
+    scrollHeight: 600,
   },
 
   onLoad() {
-    const { windowHeight } = wx.getSystemInfoSync();
-    this.windowHeight = windowHeight;
     this.renderWeek(currentWeek());
   },
 
-  onHeaderLayout(e) {
-    this.setData({ scrollHeight: this.windowHeight - e.detail.height });
+  onReady() {
+    const { windowHeight } = wx.getSystemInfoSync();
+    wx.createSelectorQuery()
+      .select('#hd')
+      .boundingClientRect(rect => {
+        if (rect) this.setData({ scrollHeight: windowHeight - rect.height });
+      })
+      .exec();
   },
 
   onWeekTap(e) {
@@ -116,24 +118,12 @@ Page({
       t: p.t,
       e: p.e,
       sLabel: p.s,
-      isBreak: BREAK_IDX.has(pi) && pi > 0,
       style: `grid-column:1;grid-row:${pi + 2};`,
     }));
 
-    const bgCells = [];
-    PERIODS.forEach((_, pi) => {
-      DAYS.forEach((_, di) => {
-        bgCells.push({
-          style: `grid-column:${di + 2};grid-row:${pi + 2};`,
-          isToday: isThisWeek && di === todayDow,
-          isBreak: BREAK_IDX.has(pi) && pi > 0,
-        });
-      });
-    });
-
     const courses = ALL_COURSES.filter(c => courseMatchesWeek(c, week));
-    const gridCourses    = courses.filter(c => c.day_num);
     const allWeekCourses = courses.filter(c => !c.day_num);
+    const gridCourses    = courses.filter(c =>  c.day_num);
 
     const courseBlocks = gridCourses.map(c => {
       const periods = (Array.isArray(c.periods) ? c.periods : c.periods.split(' ')).sort();
@@ -151,6 +141,6 @@ Page({
       };
     }).filter(Boolean);
 
-    this.setData({ week, weekDate, todayBadge, dayHeaders, timeCells, bgCells, courseBlocks, allWeekCourses });
+    this.setData({ week, weekDate, todayBadge, dayHeaders, timeCells, courseBlocks, allWeekCourses });
   },
 });
