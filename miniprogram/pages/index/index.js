@@ -1,6 +1,9 @@
-const BASE_URL = 'https://schedule-six-blush.vercel.app';
+const ALL_COURSES = require('../../data/courses.json').courses;
+
+const SEMESTER_START = new Date('2026-03-02T00:00:00');
 const TOTAL_WEEKS = 16;
 const DAYS = ['周一','周二','周三','周四','周五','周六','周日'];
+
 const PERIODS = [
   {n:'01',t:'08:00',e:'08:45',s:'上午'},
   {n:'02',t:'08:50',e:'09:35',s:''},
@@ -37,6 +40,27 @@ function courseColor(name) {
   return PALETTE[h % PALETTE.length];
 }
 
+function currentWeek() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  if (today < SEMESTER_START) return 1;
+  const days = Math.floor((today - SEMESTER_START) / 86400000);
+  return Math.min(Math.floor(days / 7) + 1, TOTAL_WEEKS);
+}
+
+function weekStartDate(week) {
+  return new Date(SEMESTER_START.getTime() + (week - 1) * 7 * 86400000);
+}
+
+function courseMatchesWeek(course, week) {
+  const weeks = course.weeks;
+  if (!weeks || weeks.length === 0) return true;
+  if (!weeks.includes(week)) return false;
+  if (course.parity === 'odd'  && week % 2 === 0) return false;
+  if (course.parity === 'even' && week % 2 === 1) return false;
+  return true;
+}
+
 Page({
   data: {
     week: 1,
@@ -53,43 +77,20 @@ Page({
 
   onLoad() {
     const { windowHeight } = wx.getSystemInfoSync();
-    this.headerHeight = 0;
     this.windowHeight = windowHeight;
-    this.fetchWeek('current');
+    this.renderWeek(currentWeek());
   },
 
   onHeaderLayout(e) {
-    const h = e.detail.height;
-    this.setData({ scrollHeight: this.windowHeight - h });
+    this.setData({ scrollHeight: this.windowHeight - e.detail.height });
   },
 
   onWeekTap(e) {
-    this.fetchWeek(e.currentTarget.dataset.week);
+    this.renderWeek(e.currentTarget.dataset.week);
   },
 
-  fetchWeek(week) {
-    const url = week === 'current'
-      ? `${BASE_URL}/api/current`
-      : `${BASE_URL}/api/week/${week}`;
-    wx.showNavigationBarLoading();
-    wx.request({
-      url,
-      success: (res) => this.renderWeek(res.data),
-      fail: (err) => {
-        console.error('request fail:', JSON.stringify(err));
-        wx.showModal({
-          title: '加载失败',
-          content: err.errMsg || '未知错误',
-          showCancel: false,
-        });
-      },
-      complete: () => wx.hideNavigationBarLoading(),
-    });
-  },
-
-  renderWeek(data) {
-    const { week, week_start, courses } = data;
-    const ws = new Date(week_start + 'T00:00:00');
+  renderWeek(week) {
+    const ws = weekStartDate(week);
     const we = new Date(ws.getTime() + 6 * 86400000);
     const weekDate = `${ws.getMonth()+1}/${ws.getDate()} – ${we.getMonth()+1}/${we.getDate()}`;
 
@@ -130,7 +131,8 @@ Page({
       });
     });
 
-    const gridCourses = courses.filter(c => c.day_num);
+    const courses = ALL_COURSES.filter(c => courseMatchesWeek(c, week));
+    const gridCourses    = courses.filter(c => c.day_num);
     const allWeekCourses = courses.filter(c => !c.day_num);
 
     const courseBlocks = gridCourses.map(c => {
