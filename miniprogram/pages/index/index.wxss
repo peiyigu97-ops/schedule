@@ -55,10 +55,10 @@ page { background: #f8f8f8; }
 
 .tt-grid {
   display: grid;
-  grid-template-columns: 104rpx repeat(7, 160rpx);
-  grid-template-rows: 96rpx repeat(13, 112rpx);
-  width: 1224rpx; /* 104 + 7×160 */
-  gap: 1rpx;
+  grid-template-columns: 104rpx 160rpx 160rpx 160rpx 160rpx 160rpx 160rpx 160rpx;
+  grid-template-rows: 96rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx;
+  width: 1224rpx;
+  grid-gap: 1rpx;
   background: #e8e8e8;
 }
 

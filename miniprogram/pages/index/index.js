@@ -4,24 +4,7 @@ const SEMESTER_START = new Date('2026-03-02T00:00:00');
 const TOTAL_WEEKS = 16;
 const DAYS = ['周一','周二','周三','周四','周五','周六','周日'];
 
-const PERIODS = [
-  {n:'01',t:'08:00',e:'08:45',s:'上午'},
-  {n:'02',t:'08:50',e:'09:35',s:''},
-  {n:'03',t:'09:40',e:'10:25',s:''},
-  {n:'04',t:'10:40',e:'11:25',s:''},
-  {n:'05',t:'11:30',e:'12:15',s:''},
-  {n:'06',t:'14:00',e:'14:45',s:'下午'},
-  {n:'07',t:'14:50',e:'15:35',s:''},
-  {n:'08',t:'15:50',e:'16:35',s:''},
-  {n:'09',t:'16:40',e:'17:25',s:''},
-  {n:'10',t:'17:30',e:'18:15',s:''},
-  {n:'11',t:'19:00',e:'19:45',s:'晚上'},
-  {n:'12',t:'19:50',e:'20:35',s:''},
-  {n:'13',t:'20:40',e:'21:25',s:''},
-];
-
-const P_IDX = {};
-PERIODS.forEach((p, i) => { P_IDX[p.n] = i; });
+const P_IDX = {'01':0,'02':1,'03':2,'04':3,'05':4,'06':5,'07':6,'08':7,'09':8,'10':9,'11':10,'12':11,'13':12};
 
 const PALETTE = [
   {bg:'#EEF2FF',border:'#818CF8',color:'#3730A3'},
@@ -66,21 +49,7 @@ function courseMatchesWeek(course, week) {
   return true;
 }
 
-// Pre-compute time cells once — never changes
-var TIME_CELLS = [];
-for (var pi = 0; pi < PERIODS.length; pi++) {
-  var p = PERIODS[pi];
-  TIME_CELLS.push({
-    idx: pi + 1,
-    t: p.t,
-    e: p.e,
-    sLabel: p.s,
-    style: 'grid-column:1;grid-row:' + (pi + 2) + ';',
-  });
-}
-
-var WEEK_NUMS = [];
-for (var w = 1; w <= TOTAL_WEEKS; w++) WEEK_NUMS.push(w);
+var WEEK_NUMS = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
 
 Page({
   data: {
@@ -89,7 +58,6 @@ Page({
     weekDate: '',
     todayBadge: '',
     dayHeaders: [],
-    timeCells: TIME_CELLS,
     courseBlocks: [],
     allWeekCourses: [],
   },
@@ -131,7 +99,7 @@ Page({
       var c = ALL_COURSES[ci];
       if (!courseMatchesWeek(c, week)) continue;
       if (!c.day_num) {
-        allWeekCourses.push(c);
+        allWeekCourses.push({name: c.name, classroom: c.classroom});
         continue;
       }
       var periods = c.periods.slice().sort();
@@ -148,6 +116,6 @@ Page({
       });
     }
 
-    this.setData({ week: week, weekDate: weekDate, todayBadge: todayBadge, dayHeaders: dayHeaders, courseBlocks: courseBlocks, allWeekCourses: allWeekCourses });
+    this.setData({week: week, weekDate: weekDate, todayBadge: todayBadge, dayHeaders: dayHeaders, courseBlocks: courseBlocks, allWeekCourses: allWeekCourses});
   },
 });
