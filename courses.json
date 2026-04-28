@@ -1,0 +1,773 @@
+{
+  "total": 36,
+  "courses": [
+    {
+      "name": "民俗调研与乡村创意",
+      "day": "全周",
+      "day_num": null,
+      "periods": [],
+      "weeks": [
+        11
+      ],
+      "weeks_raw": "11周(65学时)",
+      "parity": null,
+      "classroom": "",
+      "teacher": [
+        "张楠"
+      ]
+    },
+    {
+      "name": "产品结构设计",
+      "day": "周一",
+      "day_num": 1,
+      "periods": [
+        "05",
+        "06"
+      ],
+      "weeks": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "weeks_raw": "6-10[周]",
+      "parity": null,
+      "classroom": "345-105",
+      "teacher": [
+        "王展",
+        "李亚军"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周一",
+      "day_num": 1,
+      "periods": [
+        "05",
+        "06"
+      ],
+      "weeks": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "weeks_raw": "2-5[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A101",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "摄影创作",
+      "day": "周一",
+      "day_num": 1,
+      "periods": [
+        "06",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "Ⅳ-C513",
+      "teacher": [
+        "沈子恒",
+        "吴波宏"
+      ]
+    },
+    {
+      "name": "产品结构设计",
+      "day": "周一",
+      "day_num": 1,
+      "periods": [
+        "07",
+        "08"
+      ],
+      "weeks": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "weeks_raw": "6-10[周]",
+      "parity": null,
+      "classroom": "345-105",
+      "teacher": [
+        "王展",
+        "李亚军"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周一",
+      "day_num": 1,
+      "periods": [
+        "07",
+        "08"
+      ],
+      "weeks": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "weeks_raw": "2-5[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A101",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周二",
+      "day_num": 2,
+      "periods": [
+        "01",
+        "02"
+      ],
+      "weeks": [
+        1
+      ],
+      "weeks_raw": "1[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A401",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "应用电子技术",
+      "day": "周二",
+      "day_num": 2,
+      "periods": [
+        "01",
+        "02"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "345-105",
+      "teacher": [
+        "马春光"
+      ]
+    },
+    {
+      "name": "产品动画演示",
+      "day": "周二",
+      "day_num": 2,
+      "periods": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "weeks": [
+        9
+      ],
+      "weeks_raw": "9[周]",
+      "parity": null,
+      "classroom": "其它教室",
+      "teacher": [
+        "孙辛欣"
+      ]
+    },
+    {
+      "name": "产品动画演示",
+      "day": "周二",
+      "day_num": 2,
+      "periods": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "weeks": [
+        6,
+        8,
+        10
+      ],
+      "weeks_raw": "6,8,10[周]",
+      "parity": null,
+      "classroom": "IV-B210",
+      "teacher": [
+        "孙辛欣"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周二",
+      "day_num": 2,
+      "periods": [
+        "03",
+        "04"
+      ],
+      "weeks": [
+        1
+      ],
+      "weeks_raw": "1[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A401",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "应用电子技术",
+      "day": "周二",
+      "day_num": 2,
+      "periods": [
+        "03",
+        "04"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "345-105",
+      "teacher": [
+        "马春光"
+      ]
+    },
+    {
+      "name": "体育（Ⅳ）",
+      "day": "周二",
+      "day_num": 2,
+      "periods": [
+        "05",
+        "06"
+      ],
+      "weeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "1-16[周]",
+      "parity": null,
+      "classroom": "二运篮球场",
+      "teacher": [
+        "崔浩然"
+      ]
+    },
+    {
+      "name": "马克思主义基本原理概论",
+      "day": "周二",
+      "day_num": 2,
+      "periods": [
+        "07",
+        "08"
+      ],
+      "weeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "weeks_raw": "1-14[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A303",
+      "teacher": [
+        "李京京"
+      ]
+    },
+    {
+      "name": "马克思主义基本原理概论",
+      "day": "周二",
+      "day_num": 2,
+      "periods": [
+        "07",
+        "08"
+      ],
+      "weeks": [
+        15
+      ],
+      "weeks_raw": "15[单周]",
+      "parity": "odd",
+      "classroom": "Ⅳ-A303",
+      "teacher": [
+        "李京京"
+      ]
+    },
+    {
+      "name": "产品概念设计",
+      "day": "周三",
+      "day_num": 3,
+      "periods": [
+        "01",
+        "02"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A101",
+      "teacher": [
+        "姜霖"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周三",
+      "day_num": 3,
+      "periods": [
+        "01",
+        "02"
+      ],
+      "weeks": [
+        3,
+        4
+      ],
+      "weeks_raw": "3-4[周]",
+      "parity": null,
+      "classroom": "其它教室",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "产品动画演示",
+      "day": "周三",
+      "day_num": 3,
+      "periods": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "weeks": [
+        7
+      ],
+      "weeks_raw": "7[周]",
+      "parity": null,
+      "classroom": "Ⅳ-B101",
+      "teacher": [
+        "孙辛欣"
+      ]
+    },
+    {
+      "name": "产品概念设计",
+      "day": "周三",
+      "day_num": 3,
+      "periods": [
+        "03",
+        "04"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A101",
+      "teacher": [
+        "姜霖"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周三",
+      "day_num": 3,
+      "periods": [
+        "03",
+        "04"
+      ],
+      "weeks": [
+        3,
+        4
+      ],
+      "weeks_raw": "3-4[周]",
+      "parity": null,
+      "classroom": "其它教室",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "Python课程设计",
+      "day": "周三",
+      "day_num": 3,
+      "periods": [
+        "04",
+        "05"
+      ],
+      "weeks": [
+        1
+      ],
+      "weeks_raw": "1[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A506",
+      "teacher": [
+        "王涛"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周四",
+      "day_num": 4,
+      "periods": [
+        "01",
+        "02"
+      ],
+      "weeks": [
+        1,
+        2
+      ],
+      "weeks_raw": "1-2[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A401",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周四",
+      "day_num": 4,
+      "periods": [
+        "01",
+        "02"
+      ],
+      "weeks": [
+        5
+      ],
+      "weeks_raw": "5[周]",
+      "parity": null,
+      "classroom": "其它教室",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "摄影创作",
+      "day": "周四",
+      "day_num": 4,
+      "periods": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "Ⅳ-C513",
+      "teacher": [
+        "沈子恒",
+        "吴波宏"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周四",
+      "day_num": 4,
+      "periods": [
+        "03",
+        "04"
+      ],
+      "weeks": [
+        1,
+        2
+      ],
+      "weeks_raw": "1-2[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A401",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "用户研究与实践",
+      "day": "周四",
+      "day_num": 4,
+      "periods": [
+        "03",
+        "04"
+      ],
+      "weeks": [
+        5
+      ],
+      "weeks_raw": "5[周]",
+      "parity": null,
+      "classroom": "其它教室",
+      "teacher": [
+        "孙一文"
+      ]
+    },
+    {
+      "name": "应用电子技术",
+      "day": "周四",
+      "day_num": 4,
+      "periods": [
+        "05",
+        "06"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "345-105",
+      "teacher": [
+        "马春光"
+      ]
+    },
+    {
+      "name": "应用电子技术",
+      "day": "周四",
+      "day_num": 4,
+      "periods": [
+        "07",
+        "08"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "345-105",
+      "teacher": [
+        "马春光"
+      ]
+    },
+    {
+      "name": "产品动画演示",
+      "day": "周五",
+      "day_num": 5,
+      "periods": [
+        "01",
+        "02"
+      ],
+      "weeks": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "weeks_raw": "6-7,9-10[周]",
+      "parity": null,
+      "classroom": "IV-B210",
+      "teacher": [
+        "孙辛欣"
+      ]
+    },
+    {
+      "name": "产品动画演示",
+      "day": "周五",
+      "day_num": 5,
+      "periods": [
+        "01",
+        "02"
+      ],
+      "weeks": [
+        8
+      ],
+      "weeks_raw": "8[周]",
+      "parity": null,
+      "classroom": "其它教室",
+      "teacher": [
+        "孙辛欣"
+      ]
+    },
+    {
+      "name": "产品动画演示",
+      "day": "周五",
+      "day_num": 5,
+      "periods": [
+        "03",
+        "04"
+      ],
+      "weeks": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "weeks_raw": "6-7,9-10[周]",
+      "parity": null,
+      "classroom": "IV-B210",
+      "teacher": [
+        "孙辛欣"
+      ]
+    },
+    {
+      "name": "产品动画演示",
+      "day": "周五",
+      "day_num": 5,
+      "periods": [
+        "03",
+        "04"
+      ],
+      "weeks": [
+        8
+      ],
+      "weeks_raw": "8[周]",
+      "parity": null,
+      "classroom": "其它教室",
+      "teacher": [
+        "孙辛欣"
+      ]
+    },
+    {
+      "name": "产品概念设计",
+      "day": "周五",
+      "day_num": 5,
+      "periods": [
+        "05",
+        "06"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A101",
+      "teacher": [
+        "姜霖"
+      ]
+    },
+    {
+      "name": "产品结构设计",
+      "day": "周五",
+      "day_num": 5,
+      "periods": [
+        "05",
+        "06"
+      ],
+      "weeks": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "weeks_raw": "6-10[周]",
+      "parity": null,
+      "classroom": "345-105",
+      "teacher": [
+        "王展",
+        "李亚军"
+      ]
+    },
+    {
+      "name": "产品概念设计",
+      "day": "周五",
+      "day_num": 5,
+      "periods": [
+        "07",
+        "08"
+      ],
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "weeks_raw": "12-16[周]",
+      "parity": null,
+      "classroom": "Ⅳ-A101",
+      "teacher": [
+        "姜霖"
+      ]
+    },
+    {
+      "name": "产品结构设计",
+      "day": "周五",
+      "day_num": 5,
+      "periods": [
+        "07",
+        "08"
+      ],
+      "weeks": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "weeks_raw": "6-10[周]",
+      "parity": null,
+      "classroom": "345-105",
+      "teacher": [
+        "王展",
+        "李亚军"
+      ]
+    }
+  ]
+}
