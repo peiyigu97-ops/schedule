@@ -92,23 +92,10 @@ Page({
     timeCells: TIME_CELLS,
     courseBlocks: [],
     allWeekCourses: [],
-    scrollHeight: 600,
   },
 
   onLoad: function() {
-    var self = this;
-    setTimeout(function() { self.renderWeek(currentWeek()); }, 50);
-  },
-
-  onReady: function() {
-    var self = this;
-    var info = wx.getSystemInfoSync();
-    wx.createSelectorQuery()
-      .select('#hd')
-      .boundingClientRect(function(rect) {
-        if (rect) self.setData({ scrollHeight: info.windowHeight - rect.height });
-      })
-      .exec();
+    this.renderWeek(currentWeek());
   },
 
   onWeekTap: function(e) {

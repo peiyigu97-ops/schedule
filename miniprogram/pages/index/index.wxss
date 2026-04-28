@@ -51,7 +51,7 @@ page { background: #f8f8f8; }
 }
 
 /* ── timetable ── */
-.tt-scroll { flex: 1; }
+.tt-scroll { flex: 1; min-height: 0; overflow: hidden; }
 
 .tt-grid {
   display: grid;
