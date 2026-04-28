@@ -19,8 +19,9 @@ const PERIODS = [
   {n:'12',t:'19:50',e:'20:35',s:''},
   {n:'13',t:'20:40',e:'21:25',s:''},
 ];
+
 const P_IDX = {};
-PERIODS.forEach((p, i) => P_IDX[p.n] = i);
+PERIODS.forEach((p, i) => { P_IDX[p.n] = i; });
 
 const PALETTE = [
   {bg:'#EEF2FF',border:'#818CF8',color:'#3730A3'},
@@ -33,17 +34,20 @@ const PALETTE = [
   {bg:'#FFFBEB',border:'#FCD34D',color:'#92400E'},
 ];
 
+const COLOR_CACHE = {};
 function courseColor(name) {
-  let h = 0;
-  for (const c of name) h = (h * 31 + c.charCodeAt(0)) & 0xffff;
-  return PALETTE[h % PALETTE.length];
+  if (COLOR_CACHE[name]) return COLOR_CACHE[name];
+  var h = 0;
+  for (var i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) & 0xffff;
+  COLOR_CACHE[name] = PALETTE[h % PALETTE.length];
+  return COLOR_CACHE[name];
 }
 
 function currentWeek() {
-  const today = new Date();
+  var today = new Date();
   today.setHours(0, 0, 0, 0);
   if (today < SEMESTER_START) return 1;
-  const days = Math.floor((today - SEMESTER_START) / 86400000);
+  var days = Math.floor((today - SEMESTER_START) / 86400000);
   return Math.min(Math.floor(days / 7) + 1, TOTAL_WEEKS);
 }
 
@@ -52,95 +56,111 @@ function weekStartDate(week) {
 }
 
 function courseMatchesWeek(course, week) {
-  const weeks = course.weeks;
+  var weeks = course.weeks;
   if (!weeks || weeks.length === 0) return true;
-  if (!weeks.includes(week)) return false;
+  var found = false;
+  for (var i = 0; i < weeks.length; i++) { if (weeks[i] === week) { found = true; break; } }
+  if (!found) return false;
   if (course.parity === 'odd'  && week % 2 === 0) return false;
   if (course.parity === 'even' && week % 2 === 1) return false;
   return true;
 }
 
+// Pre-compute time cells once — never changes
+var TIME_CELLS = [];
+for (var pi = 0; pi < PERIODS.length; pi++) {
+  var p = PERIODS[pi];
+  TIME_CELLS.push({
+    idx: pi + 1,
+    t: p.t,
+    e: p.e,
+    sLabel: p.s,
+    style: 'grid-column:1;grid-row:' + (pi + 2) + ';',
+  });
+}
+
+var WEEK_NUMS = [];
+for (var w = 1; w <= TOTAL_WEEKS; w++) WEEK_NUMS.push(w);
+
 Page({
   data: {
     week: 1,
-    weekNums: Array.from({length: TOTAL_WEEKS}, (_, i) => i + 1),
+    weekNums: WEEK_NUMS,
     weekDate: '',
     todayBadge: '',
     dayHeaders: [],
-    timeCells: [],
+    timeCells: TIME_CELLS,
     courseBlocks: [],
     allWeekCourses: [],
     scrollHeight: 600,
   },
 
-  onLoad() {
-    this.renderWeek(currentWeek());
+  onLoad: function() {
+    var self = this;
+    setTimeout(function() { self.renderWeek(currentWeek()); }, 50);
   },
 
-  onReady() {
-    const { windowHeight } = wx.getSystemInfoSync();
+  onReady: function() {
+    var self = this;
+    var info = wx.getSystemInfoSync();
     wx.createSelectorQuery()
       .select('#hd')
-      .boundingClientRect(rect => {
-        if (rect) this.setData({ scrollHeight: windowHeight - rect.height });
+      .boundingClientRect(function(rect) {
+        if (rect) self.setData({ scrollHeight: info.windowHeight - rect.height });
       })
       .exec();
   },
 
-  onWeekTap(e) {
+  onWeekTap: function(e) {
     this.renderWeek(e.currentTarget.dataset.week);
   },
 
-  renderWeek(week) {
-    const ws = weekStartDate(week);
-    const we = new Date(ws.getTime() + 6 * 86400000);
-    const weekDate = `${ws.getMonth()+1}/${ws.getDate()} – ${we.getMonth()+1}/${we.getDate()}`;
+  renderWeek: function(week) {
+    var ws = weekStartDate(week);
+    var we = new Date(ws.getTime() + 6 * 86400000);
+    var weekDate = (ws.getMonth()+1) + '/' + ws.getDate() + ' – ' + (we.getMonth()+1) + '/' + we.getDate();
 
-    const today = new Date();
+    var today = new Date();
     today.setHours(0, 0, 0, 0);
-    const todayDow = today.getDay() === 0 ? 6 : today.getDay() - 1;
-    const isThisWeek = today >= ws && today <= we;
-    const DOW = ['日','一','二','三','四','五','六'];
-    const todayBadge = `今天 周${DOW[today.getDay()]} ${today.getMonth()+1}/${today.getDate()}`;
+    var todayDow = today.getDay() === 0 ? 6 : today.getDay() - 1;
+    var isThisWeek = today >= ws && today <= we;
+    var DOW = ['日','一','二','三','四','五','六'];
+    var todayBadge = '今天 周' + DOW[today.getDay()] + ' ' + (today.getMonth()+1) + '/' + today.getDate();
 
-    const dayHeaders = DAYS.map((name, di) => {
-      const d = new Date(ws.getTime() + di * 86400000);
-      return {
-        name,
-        date: `${d.getMonth()+1}/${d.getDate()}`,
+    var dayHeaders = [];
+    for (var di = 0; di < 7; di++) {
+      var d = new Date(ws.getTime() + di * 86400000);
+      dayHeaders.push({
+        name: DAYS[di],
+        date: (d.getMonth()+1) + '/' + d.getDate(),
         isToday: isThisWeek && di === todayDow,
         col: di + 2,
-      };
-    });
+      });
+    }
 
-    const timeCells = PERIODS.map((p, pi) => ({
-      idx: pi + 1,
-      t: p.t,
-      e: p.e,
-      sLabel: p.s,
-      style: `grid-column:1;grid-row:${pi + 2};`,
-    }));
-
-    const courses = ALL_COURSES.filter(c => courseMatchesWeek(c, week));
-    const allWeekCourses = courses.filter(c => !c.day_num);
-    const gridCourses    = courses.filter(c =>  c.day_num);
-
-    const courseBlocks = gridCourses.map(c => {
-      const periods = (Array.isArray(c.periods) ? c.periods : c.periods.split(' ')).sort();
-      const pi0 = P_IDX[periods[0]];
-      const pi1 = P_IDX[periods[periods.length - 1]];
-      if (pi0 === undefined || pi1 === undefined) return null;
-      const clr = courseColor(c.name);
-      const parity = c.parity === 'odd' ? '单' : c.parity === 'even' ? '双' : '';
-      return {
+    var allWeekCourses = [];
+    var courseBlocks = [];
+    for (var ci = 0; ci < ALL_COURSES.length; ci++) {
+      var c = ALL_COURSES[ci];
+      if (!courseMatchesWeek(c, week)) continue;
+      if (!c.day_num) {
+        allWeekCourses.push(c);
+        continue;
+      }
+      var periods = c.periods.slice().sort();
+      var pi0 = P_IDX[periods[0]];
+      var pi1 = P_IDX[periods[periods.length - 1]];
+      if (pi0 === undefined || pi1 === undefined) continue;
+      var clr = courseColor(c.name);
+      var parity = c.parity === 'odd' ? '单' : c.parity === 'even' ? '双' : '';
+      courseBlocks.push({
         name: c.name,
         classroom: c.classroom || '',
-        parity,
-        span: pi1 - pi0 + 1,
-        style: `grid-column:${c.day_num + 1};grid-row:${pi0 + 2}/${pi1 + 3};background:${clr.bg};border-left-color:${clr.border};color:${clr.color};`,
-      };
-    }).filter(Boolean);
+        parity: parity,
+        style: 'grid-column:' + (c.day_num + 1) + ';grid-row:' + (pi0 + 2) + '/' + (pi1 + 3) + ';background:' + clr.bg + ';border-left-color:' + clr.border + ';color:' + clr.color + ';',
+      });
+    }
 
-    this.setData({ week, weekDate, todayBadge, dayHeaders, timeCells, courseBlocks, allWeekCourses });
+    this.setData({ week: week, weekDate: weekDate, todayBadge: todayBadge, dayHeaders: dayHeaders, courseBlocks: courseBlocks, allWeekCourses: allWeekCourses });
   },
 });
