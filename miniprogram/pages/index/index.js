@@ -1,4 +1,4 @@
-const ALL_COURSES = require('../../data/courses.json').courses;
+const ALL_COURSES = require('../../data/courses.js').courses;
 
 const SEMESTER_START = new Date('2026-03-02T00:00:00');
 const TOTAL_WEEKS = 16;
