@@ -1,5 +1,6 @@
 {
   "pages": ["pages/index/index"],
+  "lazyCodeLoading": "requiredComponents",
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "课程表",

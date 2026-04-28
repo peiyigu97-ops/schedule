@@ -75,7 +75,14 @@ Page({
     wx.request({
       url,
       success: (res) => this.renderWeek(res.data),
-      fail: () => wx.showToast({ title: '加载失败', icon: 'error' }),
+      fail: (err) => {
+        console.error('request fail:', JSON.stringify(err));
+        wx.showModal({
+          title: '加载失败',
+          content: err.errMsg || '未知错误',
+          showCancel: false,
+        });
+      },
       complete: () => wx.hideNavigationBarLoading(),
     });
   },
