@@ -99,6 +99,10 @@ app = Flask(__name__, static_folder=BASE_DIR, static_url_path="")
 def index():
     return send_from_directory(BASE_DIR, "index.html")
 
+@app.route("/<filename>.txt")
+def serve_txt(filename):
+    return send_from_directory(BASE_DIR, filename + ".txt", mimetype="text/plain")
+
 @app.route("/api/current")
 def api_current():
     week = current_week()
