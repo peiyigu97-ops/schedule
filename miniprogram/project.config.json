@@ -1,0 +1,11 @@
+{
+  "appid": "wx0de58a4cefefa2d3",
+  "projectname": "课程表",
+  "compileType": "miniprogram",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "minified": true
+  }
+}
