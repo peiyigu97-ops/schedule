@@ -3,6 +3,7 @@
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "课程表",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f8f8f8"
   }
 }
