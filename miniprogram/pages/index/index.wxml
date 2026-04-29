@@ -26,7 +26,7 @@
     </view>
   </view>
 
-  <scroll-view scroll-x scroll-y class="tt-scroll">
+  <scroll-view scroll-y class="tt-scroll">
     <view class="tt-grid">
 
       <view class="corner"></view>

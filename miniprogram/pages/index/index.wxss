@@ -55,9 +55,9 @@ page { background: #f8f8f8; }
 
 .tt-grid {
   display: grid;
-  grid-template-columns: 104rpx 160rpx 160rpx 160rpx 160rpx 160rpx 160rpx 160rpx;
-  grid-template-rows: 96rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx 112rpx;
-  width: 1224rpx;
+  grid-template-columns: 78rpx 96rpx 96rpx 96rpx 96rpx 96rpx 96rpx 96rpx;
+  grid-template-rows: 80rpx 108rpx 108rpx 108rpx 108rpx 108rpx 108rpx 108rpx 108rpx 108rpx 108rpx 108rpx 108rpx 108rpx;
+  width: 750rpx;
   grid-gap: 1rpx;
   background: #e8e8e8;
 }
@@ -76,11 +76,11 @@ page { background: #f8f8f8; }
   border-right: 1rpx solid #e8e8e8;
   border-bottom: 1rpx solid #e8e8e8;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 4rpx;
+  align-items: center; justify-content: center; gap: 2rpx;
 }
 .today-hd { background: #111; }
-.day-name { font-size: 22rpx; font-weight: 600; color: #111; }
-.day-date { font-size: 20rpx; color: #bbb; }
+.day-name { font-size: 18rpx; font-weight: 600; color: #111; }
+.day-date { font-size: 16rpx; color: #bbb; }
 .txt-white { color: #fff; }
 .txt-white-dim { color: rgba(255,255,255,0.6); }
 
@@ -92,30 +92,30 @@ page { background: #f8f8f8; }
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
 }
-.sec-label { font-size: 16rpx; color: #ccc; margin-bottom: 4rpx; }
-.p-num  { font-size: 20rpx; font-weight: 500; color: #bbb; }
-.p-time { font-size: 16rpx; color: #d0d0d0; }
-.p-sep  { font-size: 16rpx; color: #e0e0e0; }
+.sec-label { font-size: 14rpx; color: #ccc; margin-bottom: 2rpx; }
+.p-num  { font-size: 18rpx; font-weight: 500; color: #bbb; }
+.p-time { display: none; }
+.p-sep  { display: none; }
 
 /* course blocks */
 .course-blk {
-  margin: 4rpx;
-  border-radius: 16rpx;
-  padding: 10rpx 12rpx;
+  margin: 2rpx;
+  border-radius: 10rpx;
+  padding: 6rpx 6rpx;
   overflow: hidden;
   display: flex; flex-direction: column;
-  border-left: 6rpx solid transparent;
+  border-left: 4rpx solid transparent;
 }
 .c-name {
-  font-size: 22rpx; font-weight: 600;
+  font-size: 18rpx; font-weight: 600;
   line-height: 1.3; color: inherit;
   overflow: hidden;
 }
 .c-room {
-  font-size: 18rpx; opacity: 0.65;
-  margin-top: 4rpx; color: inherit; overflow: hidden;
+  font-size: 14rpx; opacity: 0.65;
+  margin-top: 2rpx; color: inherit; overflow: hidden;
 }
 .c-parity {
-  font-size: 16rpx; opacity: 0.55;
+  font-size: 13rpx; opacity: 0.55;
   margin-top: auto; color: inherit;
 }
